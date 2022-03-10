@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Richterova">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/default.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Counter</title>
+    <style>
+        .background {
+            background-color: #2F3437;
+        }
+        .text-green {
+            color: #84C53E;
+            font-weight: bold;
+            font-size: 150px;
+            font-family: 'Ubuntu', sans-serif;
+        }
+        html, body {
+            height: 100%;
+        }
+        .container {
+            height: 100%;
+            position: relative;
+        }
+
+        .vertical-center {
+            margin: 0;
+            position: relative;
+            top: 50%;
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+<body class="background  text-center">
+<div class="container">
+    <div class="vertical-center">
+        <p id="cc" class="text-green">0. týždeň</p>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+<script>
+
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+
+        currentdate = new Date();
+        var oneJan = new Date(currentdate.getFullYear(),0,1);
+        var numberOfDays = Math.floor((currentdate - oneJan) / (24 * 60 * 60 * 1000));
+        var result = Math.ceil(( currentdate.getDay() + 1 + numberOfDays) / 7);
+
+        document.getElementById("cc").innerHTML = `${result - 7}. týždeň`;
+    }, 1000);
+
+</script>
+
+
+</body>
+</html>
