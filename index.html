@@ -57,9 +57,9 @@
         currentdate = new Date();
         var oneJan = new Date(currentdate.getFullYear(),0,1);
         var numberOfDays = Math.floor((currentdate - oneJan) / (24 * 60 * 60 * 1000));
-        var result = Math.ceil(( currentdate.getDay() + 1 + numberOfDays) / 7);
-
-        document.getElementById("cc").innerHTML = `${result - 7}. týždeň`;
+        var from_start = numberOfDays - 43
+        var result = Math.ceil((1.0 * from_start) / 7);
+        document.getElementById("cc").innerHTML = `${result}. týždeň`;
     }, 1000);
 
 </script>
